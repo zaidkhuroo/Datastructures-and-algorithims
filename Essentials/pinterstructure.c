@@ -11,4 +11,4 @@ int main(){
     t->b=20;
     t->c=60;
     printf("Sides of Triangle are: %d %d %d\n",t->a,t->b,t->c);
-}
+} 
