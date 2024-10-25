@@ -4,7 +4,7 @@
 int *fun(int n)
 {
     int *p;
-    p = (int *)malloc(n * sizeof(int));
+    p = (int *)malloc(n * sizeof(int)); 
 
     for (int i = 0; i < n; i++)
     {
