@@ -22,9 +22,10 @@ int area(struct triangle t)
 }
 
 // function to change values to the triangle using call by address
-void change(struct triangle *t, int k)
+void change(struct triangle *t, int l, int m)
 {
-    t->a = k;
+    t->a = l;
+    t->b = m;
 }
 
 int main()
@@ -33,8 +34,8 @@ int main()
     initialize(&t, 20, 40, 60);
     int total = area(t);
     printf("\n Total area before changing value: %d", total);
-    change(&t, 30);
-    printf("\n Changed value: %d \n", t.a);
+    change(&t, 30,2);
+    printf("\n Changed value: %d %d \n", t.a,t.b);
     int total_area = area(t);
     printf("Total area after changing value: %d", total_area);
     return 0;
