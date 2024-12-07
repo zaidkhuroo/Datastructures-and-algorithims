@@ -17,21 +17,23 @@ void display(struct ARR arr)
     }
 }
 
-void delete(struct ARR *arr, int index)
+int delete(struct ARR *arr, int index)
 {
     int i;
+    int a = arr->A[index];
     if (index >= 0 && index <= arr->length)
+    {
         for (i = index; i < arr->length - 1; i++)
             arr->A[i] = arr->A[i + 1];
-    arr->length--;
+        arr->length--;
+        return a;
+    }
+    return 0;
 }
 int main()
 {
     struct ARR arr = {{1, 2, 3, 4, 5, 6, 7, 8}, 10, 6};
-    printf("\n before deletion \n");
-    display(arr);
-    delete (&arr, 4);
-    printf("\n after deletion \n");
+    printf("Deleted: %d \n", delete(&arr, 4));
     display(arr);
     return 0;
 }
