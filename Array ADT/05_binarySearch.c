@@ -25,24 +25,29 @@ void swap(int *x, int *y)
     *y = temp;
 }
 
-int search(struct ARR *arr, int num)
+int search(struct ARR *arr, int key)
 {
     int i;
-
-    for (i = 0; i < arr->length - 1; i++)
+    int l, h, mid;
+    l = 0;
+    h = arr->length - 1;
+    while(l<=h)
     {
-        if (num == arr->A[i])
-            swap(arr->A[i], arr->A[i-1]);  // transposition technique: this will increase efficency of searching the element if it is searched once or for repeated times, more it is searched more its swapped with the previous elemnt and thus reaches at the starting index of the array and the goal is to have the time complexity as O(1);
-            swap(arr->A[i], arr->A[0]);  // Move to front/Head: this will increase efficency of searching the element if it is searched once the element gets swapped with the starting element of the array thus the time complexity becomes O(1) if the same elemnt gets searched again.;
-            return i;
+        mid = (l + h) / 2;
+        if (key == arr->A[mid])
+            return mid;
+        else if (key < arr->A[mid])
+            h = mid - 1;
+        else
+            l = mid + 1;
     }
     return -1;
 }
 
 int main()
 {
-    struct ARR arr = {{1, 2, 3, 4, 5, 6, 7, 8}, 10, 6};
-    int result = search(&arr, 45);
+    struct ARR arr = {{1, 2, 3, 4, 5, 6, 7, 8}, 10, 8};
+    int result = search(&arr, 8);
     if (result == -1)
         printf("Number not found \n");
     else
