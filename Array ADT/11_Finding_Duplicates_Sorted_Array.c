@@ -19,23 +19,25 @@ void display(struct ARR arr)
 
 int Duplicates(struct ARR *arr)
 {
-    int i, sum = 0, totalsum, missing;
+    int i, sum = 0, totalsum, missing, last = 0;
     int n = arr->A[arr->length - 1];
 
     for (i = 0; i < arr->length; i++)
     {
 
-        sum = sum + arr->A[i];
+        if (arr->A[i] == arr->A[i + 1] && arr->A[i] != last)
+        
+            printf("%d \t", arr->A[i]);
+        
+        last = arr->A[i];
+       
     }
-    totalsum = n * (n + 1) / 2;
-    missing = totalsum - sum;
-    return missing;
 }
 
 int main()
 {
-    struct ARR arr = {{1, 3, 4, 5, 6, 7, 8}, 10, 7};
-    int result = Duplicates(&arr);
-    printf("Duplicate Number: %d\n", result);
+    struct ARR arr = {{1, 3, 4, 4, 6, 7, 7, 7, 8, 8}, 10, 10};
+    printf(" Duplicate numbers are: ");
+    Duplicates(&arr);
     return 0;
 }
