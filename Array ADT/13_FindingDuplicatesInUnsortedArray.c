@@ -23,6 +23,7 @@ void Duplicates(struct ARR *arr1) {
 
 
     printf("\nDuplicate numbers are:\n");
+    // using nested loop to seacrh through array
     for (i = 0; i <= max; i++) {
         for (i = 0; i <= max; i++){
             
